@@ -1,0 +1,326 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+
+<form id="input_id" method="post" >{% csrf_token %}
+	<div class = "userprofile">
+	
+	<fieldset>
+		<legend>Personal Details:</legend>
+		Name:<br>
+		<input type ="text"  name="candidate_name" id="name" required><br>
+		Email:<br>
+		<input type ="email"  name = "email_id" id="email" required><br>
+		Mobile:<br>
+		<input type ="number" name = "mobile" id="phone"><br>
+		Address:<br>
+		<input type ="text" name = "address" id="candidate_address" required><br>
+		Website:<br>
+		<input type ="text" name = "candidate_website" id="website"><br>
+		DOB:<br>
+		<input type ="date" name = "candidate_dob" id="dob"><br>
+	</fieldset>
+
+
+    	<div class="profiles">
+			<div style="background-color:lightblue">
+			<fieldset>
+				<legend>Profiles:</legend>
+				Profile:<br>
+				<input type ="text" name = "candidate_profiles" id="profile" multiple><br>
+				Username:<br>
+				<input type ="text" name = "profile_username" id="username"><br>
+				URL:<br>
+				<input type ="url" name = "profile_url" id="url"><br>
+			</fieldset>
+			</div>
+			<a>Add Profile</a>
+		</div>
+
+
+	<fieldset>
+		<legend>Experience:</legend>
+		Career Objective:<br>
+		<input type ="text"  name="career_objective" id="careerObjective"  required><br>
+		Total Experience:<br>
+		<input type ="date" name = "total_experience" id="totalExperience"><br>
+
+	</fieldset>
+
+
+		<div class="work">
+			<div style="background-color:lightblue">
+			<fieldset>
+				<legend>Employment:</legend>
+				Company:<br>
+				<input type ="text"  name="company" id="company"><br>
+				Position:<br>
+				<input type ="text"  name = "emp_position" id="position"><br>
+				Location:<br>
+				<input type ="text" name = "emp_location" id="location"><br>
+				Website:<br>
+				<input type ="text" name = "emp_website" id="website"><br>
+				Start Date:<br>
+				<input type ="date" name = "emp_startdate" id="startDate"><br>
+				End Date:<br>
+				<input type ="date" name = "emp_enddate" id="endDate"><br>
+				Summary:<br>
+				<input type ="text" name = "emp_summary" id="summary"><br>
+			</fieldset>
+			</div>
+			<a>Add Work</a>
+		</div>
+
+	
+		<div class="projects">
+			<div style="background-color:lightblue">
+			<fieldset>
+				<legend>Projects:</legend>
+				Name:<br>
+				<input type ="text"  name="project_name" id="name"><br>
+				URL:<br>
+				<input type ="url"  name = "project_url" id="url"><br>
+				Start Date:<br>
+				<input type ="date" name = "project_startdate" id="startDate"><br>
+				End Date:<br>
+				<input type ="date" name = "project_enddate" id="endDate"><br>
+				Summary:<br>
+				<input type ="text" name = "project_summary" id="summary"><br>
+			</fieldset>
+			</div>
+			<a>Add Projects</a>
+		</div>
+
+
+		<div class ="skills">
+			<div style="background-color:lightblue">
+			<fieldset>
+				<legend>Skills:</legend>
+				Languages:<br>
+				<input type ="text"  name="language" id="languages"><br>
+				Tools:<br>
+				<input type ="text"  name = "tools" id="Tools"><br>
+				Platforms:<br>
+				<input type ="text" name = "platform" id="Platforms"><br>
+				Services:<br>
+				<input type ="text" name = "services" id="Services"><br>
+			</fieldset>
+			</div>
+			<a>Add Skills</a>
+		</div>
+
+
+		<div class="education">
+			<div style="background-color:lightblue">
+			<fieldset>
+				<legend>Education:</legend>
+				Institute Name:<br>
+				<input type ="text"  name="institute_name" id="institution"><br>
+				Specialization:<br>
+				<input type ="text"  name = "specialization" id="area"><br>
+				Branch:<br>
+				<input type ="text" name = "edu_branch" id="branch"><br>
+				Study Type:<br>
+				<input type ="text" name = "study_type" id="studyType"><br>
+				Start Date:<br>
+				<input type ="text" name = "start_date" id="startDate"><br>
+				End Date:<br>
+				<input type ="text" name = "end_date" id="endDate"><br>
+				Location:<br>
+				<input type ="text" name = "education_location" id="location"><br>
+				Grade:<br>
+				<input type ="number" name = "grade" id="gpa"><br>
+			</fieldset>
+			</div>
+			<a>Add Education</a>
+		</div>
+
+
+		<div class ="languageknown">
+			<div style="background-color:lightblue">
+			<fieldset>
+				<legend>Languages:</legend>
+				Language:<br>
+				<input type ="text"  name="lang" id="language"><br>
+			</fieldset>
+			</div>
+			<a>Add Language</a>
+		</div>
+
+
+		<div class="award">
+			<div style="background-color:lightblue">
+			<fieldset>
+				<legend>Awards:</legend>
+				Title:<br>
+				<input type ="text"  name="award_title" id="title"><br>
+				Date:<br>
+				<input type ="date"  name = "award_date" id="date"><br>
+				Awarder:<br>
+				<input type ="text" name = "award_presentor" id="awarder"><br>
+				Summary:<br>
+				<input type ="text" name = "award_summary" id="summary"><br>
+			</fieldset>
+		</div>
+		<a>Add Awards</a>
+		</div>
+
+
+		<div class="interest">
+			<div style="background-color:lightblue">
+			<fieldset>
+				<legend>Interests:</legend>
+				Title:<br>
+				<input type ="text"  name="interest" id="title"><br>
+			</fieldset>
+			</div>
+			<a>Add Interest</a>
+		</div>
+	<button id="btn" class="submit" type="button" onclick="get_values(this);">Submit</button>
+
+</form>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="{% static 'shinelearn/js/resume_builder/resume_builder.js' %}"></script>
+<script src="{% static 'shinelearn/js/resume_builder/get_urls.js' %}"></script>
+<script>
+
+
+	$('.profiles a').click(function(){
+		console.log('ok');{
+		var $div = $($(this).parent().children()[0])
+		var clone = $div.clone();
+		d = $('.profiles div').length;
+
+		var list = ['candidate_profiles','profile_username','profile_url'];
+		for(var i=0; i<list.length; i++){
+			var Id = $(clone[0]).find('input[name='+list[i]+']').attr('id')
+			var cloneIdStr = Id + d;
+			$(clone[0]).find('input[name='+list[i]+']').attr('id',cloneIdStr).val('')}
+		$(this).before(clone);
+
+}
+});
+
+	$('.work a').click(function(){
+		console.log('ok');{
+		var $div = $($(this).parent().children()[0])
+		var clone = $div.clone();
+		e = $('.work div').length;
+
+		var list = ['company','emp_position','emp_location','emp_website','emp_startdate','emp_enddate','emp_summary'];
+		for(var i=0; i<list.length; i++){
+			var Id = $(clone[0]).find('input[name='+list[i]+']').attr('id')
+			var cloneIdStr = Id + e;
+			$(clone[0]).find('input[name='+list[i]+']').attr('id',cloneIdStr).val('')}
+		$(this).before(clone);
+
+}
+});
+
+	$('.projects a').click(function(){
+		console.log('ok');{
+		var $div = $($(this).parent().children()[0])
+		var clone = $div.clone();
+		f = $('.projects div').length;
+
+		var list = ['project_name','project_url','project_startdate','project_enddate','project_summary'];
+		for(var i=0; i<list.length; i++){
+			var Id = $(clone[0]).find('input[name='+list[i]+']').attr('id')
+			var cloneIdStr = Id + f;
+			$(clone[0]).find('input[name='+list[i]+']').attr('id',cloneIdStr).val('')}
+
+		$(this).before(clone);
+
+}
+});
+
+	$('.skills a').click(function(){
+		console.log('ok');{
+		var $div = $($(this).parent().children()[0])
+		var clone = $div.clone();
+		g = $('.skills div').length;
+
+		var list = ['language','tools','platform','services'];
+		for(var i=0; i<list.length; i++){
+			var Id = $(clone[0]).find('input[name='+list[i]+']').attr('id')
+			var cloneIdStr = Id + g;
+			$(clone[0]).find('input[name='+list[i]+']').attr('id',cloneIdStr).val('')}
+
+		$(this).before(clone);
+}
+});
+
+
+	$('.education a').click(function(){
+		console.log('ok');{
+		var $div = $($(this).parent().children()[0])
+		var clone = $div.clone();
+		h = $('.education div').length;
+
+		var list = ['institute_name','specialization','edu_branch','study_type','start_date','end_date','education_location','grade'];
+    	for(var i=0; i<list.length; i++){
+    		var Id = $(clone[0]).find('input[name='+list[i]+']').attr('id')
+    		var cloneIdStr = Id + h;
+    		$(clone[0]).find('input[name='+list[i]+']').attr('id',cloneIdStr).val('')}
+
+    	$(this).before(clone);
+}
+});
+
+
+
+	$('.languageknown a').click(function(){
+		console.log('ok');{
+		var $div = $($(this).parent().children()[0])
+		var clone = $div.clone();
+		j = $('.languageknown div').length;
+
+		var list = ['lang'];
+		for(var i=0; i<list.length; i++){
+			var Id = $(clone[0]).find('input[name='+list[i]+']').attr('id')
+			var cloneIdStr = Id + j;
+			$(clone[0]).find('input[name='+list[i]+']').attr('id',cloneIdStr).val('')}
+		$(this).before(clone);
+
+}
+});
+
+	$('.award a').click(function(){
+		console.log('ok');{
+		var $div = $($(this).parent().children()[0])
+		var clone = $div.clone();
+		k = $('.award div').length;
+
+		var list = ['award_title','award_date','award_presentor','award_summary'];
+		for(var i=0; i<list.length; i++){
+			var Id = $(clone[0]).find('input[name='+list[i]+']').attr('id')
+			var cloneIdStr = Id + k;
+			$(clone[0]).find('input[name='+list[i]+']').attr('id',cloneIdStr).val('')}
+
+		$(this).before(clone);
+}
+});
+
+	$('.interest a').click(function(){
+		console.log('ok');{
+		var $div = $($(this).parent().children()[0])
+		var clone = $div.clone();
+		l = $('.interest div').length;
+
+		var list = ['interest'];
+		for(var i=0; i<list.length; i++){
+			var Id = $(clone[0]).find('input[name='+list[i]+']').attr('id')
+			var cloneIdStr = Id + l;
+			$(clone[0]).find('input[name='+list[i]+']').attr('id',cloneIdStr).val('')}
+
+		$(this).before(clone);
+}
+});
+	
+</script>
+</html>

@@ -1,0 +1,129 @@
+%!TEX TS-program = xelatex
+\documentclass[]{friggeri-cv}
+\addbibresource{bibliography.bib}
+
+\begin{document}
+\header{ {{resumeData["basics"]["name"].split()[0]}}} { {{resumeData["basics"]["name"].split()[1]}} }
+       { {{resumeData["basics"]["designation"]}} }
+
+
+% In the aside, each new line forces a line break
+\begin{aside}
+  \section{about}
+    {{resumeData["basics"]["website"]}}
+    {{resumeData["basics"]["phone"]}}
+    Experience: {{resumeData["basics"]["totalExperience"]}}
+    Location: {{resumeData["basics"]["currentLocation"]}}
+    {{resumeData["basics"]["profiles"][0]["url"]}}
+    {{resumeData["basics"]["email"]}}
+    \section{languages}
+    {% for i in resumeData["languages"] %}
+    {{i["language"]}}
+    {% endfor %}
+
+
+  {% for x,y in resumeData["skills"].iteritems() %}
+        \section{ {{x}} }
+            {% for i in y.split(",") %}
+                {{i}}
+            {% endfor %}
+    {% endfor %}
+
+\end{aside}
+
+\section{interests}
+{{resumeData["careerObjective"]}}
+\section{education}
+
+\begin{entrylist}
+{% for i in resumeData["education"] %}
+  \entry
+    { {{i["startDate"]}} - {{i["endDate"]}} }
+    { {{i["area"] }}  {\normalfont {{i["branch"]}} } }
+    { {{i["location"]}} }
+    {\emph { {{i["institution"]}} \\
+    GPA: {{i["gpa"]}} } }
+{% endfor %}
+\end{entrylist}
+
+\section{experience}
+
+\begin{entrylist}
+{% for i in resumeData["work"] %}
+  \entry
+    { {{i["startDate"]}} - {{i["endDate"]}} }
+    { {{i["company"]}} :: {{i["position"]}} }
+    { {{i["location"]}} }
+    {\emph{ {{i["summary"]}} }}
+{% endfor %}
+
+\end{entrylist}
+
+\section{projects}
+
+\begin{entrylist}
+  {% for i in resumeData["projects"] %}
+  \entry
+    { {{i["startDate"]}} - {{i["endDate"]}} }
+    { {{i["name"]}} }
+    { {{i["url"]}} }
+    {\emph{ {{i["summary"]}} }}
+{% endfor %}
+\end{entrylist}
+
+\section{Interest}
+
+\begin{entrylist}
+  {% for i in resumeData["interests"] %}
+  \entry
+    { {{i["name"]}} }
+    { {{i["keywords"]}} }
+    {}
+    {}
+{% endfor %}
+\end{entrylist}
+
+\section{awards}
+
+\begin{entrylist}
+  {% for i in resumeData["awards"] %}
+  \entry
+    { {{i["date"]}} }
+    { {{i["title"]}} }
+    { {{i["awarder"]}} }
+    {\emph{ {{i["summary"]}} }}
+{% endfor %}
+\end{entrylist}
+
+
+\section{languages}
+
+\begin{entrylist}
+  {% for i in resumeData["languages"] %}
+  \entry
+    {}
+    { {{i["language"]}} }
+    { {{i["fluency"]}} }
+    {}
+{% endfor %}
+\end{entrylist}
+
+%\section{publications}
+%
+%Put your publications here!
+
+%%% This piece of code has been commented by Karol Kozioł due to biblatex errors.
+%
+%\printbibsection{article}{article in peer-reviewed journal}
+%\begin{refsection}
+%  \nocite{*}
+%  \printbibliography[sorting=chronological, type=inproceedings, title={international peer-reviewed conferences/proceedings}, notkeyword={france}, heading=subbibliography]
+%\end{refsection}
+%\begin{refsection}
+%  \nocite{*}
+%  \printbibliography[sorting=chronological, type=inproceedings, title={local peer-reviewed conferences/proceedings}, keyword={france}, heading=subbibliography]
+%\end{refsection}
+%\printbibsection{misc}{other publications}
+%\printbibsection{report}{research reports}
+
+\end{document}

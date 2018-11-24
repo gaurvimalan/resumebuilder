@@ -1,0 +1,23 @@
+Hey! Show me the data for order id: {{order_id}}
+
+<p id = "demo"></p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+var order_id = '{{order_id}}'
+$.ajax({
+	type: "GET",
+	// data: {"order_id": order_id},
+	contentType: "application/json",
+	url: '/resume_builder/api/'+ order_id.toString() + '/',
+	success: function(userdata){
+		console.log(userdata);
+		$("#demo").html(JSON.stringify(userdata.urls));
+	},
+	error: function(){
+		console.log('error');
+	}
+});
+
+</script>
+
+

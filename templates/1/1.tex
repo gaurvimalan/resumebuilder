@@ -1,0 +1,295 @@
+%%% LaTeX Template: Designer's CV
+%%%
+%%% Source: http://www.howtotex.com/
+%%% Feel free to distribute this template, but please keep the referal to HowToTeX.com.
+%%% Date: March 2012
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document properties and packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,12pt,final]{memoir}
+
+% misc
+\renewcommand{\familydefault}{bch}	% font
+\pagestyle{empty}					% no pagenumbering
+\setlength{\parindent}{0pt}			% no paragraph indentation
+
+
+% required packages (add your own)
+\usepackage{flowfram}										% column layout
+\usepackage[top=1cm,left=1cm,right=1cm,bottom=1cm]{geometry}% margins
+\usepackage{graphicx}										% figures
+\usepackage{url}											% URLs
+\usepackage[usenames,dvipsnames]{xcolor}					% color
+\usepackage{multicol}										% columns env.
+	\setlength{\multicolsep}{0pt}
+\usepackage{paralist}										% compact lists
+\usepackage{tikz}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Create column layout
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% define length commands
+\setlength{\vcolumnsep}{\baselineskip}
+\setlength{\columnsep}{\vcolumnsep}
+
+% frame setup (flowfram package)
+% left frame
+\newflowframe{0.2\textwidth}{\textheight}{0pt}{0pt}[left]
+	\newlength{\LeftMainSep}
+	\setlength{\LeftMainSep}{0.2\textwidth}
+	\addtolength{\LeftMainSep}{1\columnsep}
+ 
+% small static frame for the vertical line
+\newstaticframe{1.5pt}{\textheight}{\LeftMainSep}{0pt}
+ 
+% content of the static frame
+\begin{staticcontents}{1}
+\hfill
+\tikz{ %
+	\draw[loosely dotted,color=RoyalBlue,line width=1.5pt,yshift=0]
+	(0,0) -- (0,\textheight);}%
+\hfill\mbox{}
+\end{staticcontents}
+ 
+% right frame
+\addtolength{\LeftMainSep}{1.5pt}
+\addtolength{\LeftMainSep}{1\columnsep}
+\newflowframe{0.7\textwidth}{\textheight}{\LeftMainSep}{0pt}[main01]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% define macros (for convience)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Sep}{\vspace{1.5em}}
+\newcommand{\SmallSep}{\vspace{0.5em}}
+
+\newenvironment{AboutMe}
+	{\ignorespaces\textbf{\color{RoyalBlue} About me}}
+	{\Sep\ignorespacesafterend}
+	
+\newcommand{\CVSection}[1]
+	{\Large\textbf{ #1}\par
+	\SmallSep\normalsize\normalfont}
+
+\newcommand{\CVItem}[1]
+	{\textbf{\color{RoyalBlue} #1}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% Left frame
+%%%%%%%%%%%%%%%%%%%%
+\begin{flushright}\small
+	shine.com\\
+	\url{ vishal180618 } \\
+	\url{ vishalsingh@ht.com } \\
+	(555) 555-5555\\
+	Experience: 2 years\\
+	Location: Gurgaon\\
+\end{flushright}\normalsize
+\framebreak
+
+
+% Right frame
+%%%%%%%%%%%%%%%%%%%%
+\Huge\bfseries {\color{RoyalBlue} Vishal Singh} \\
+\Large\bfseries  Software Developer \\
+
+\normalsize\normalfont
+
+% About me
+\begin{AboutMe}
+It will include your profile title and summary...Seeking co-operative employment in the field of software development preferably working in python and web backend infrastructure or distributed computing to start June 2016.
+\end{AboutMe}
+
+% Experience
+\CVSection{Experience}
+
+    \CVItem{ 2015 - 2015, Remond }\\
+    Designed and developoduction of Windows 10 Universal Apps across many devices. Development done in C#, using Microsoft Application Insights as a data backend.
+    \SmallSep
+
+    \CVItem{ 2013 - 2013, Columbus, OH }\\
+    Developed a web application using Python and the Dy store, search, and retrieve archived medical records. Primary Responsibility was the design and implementation of the metadata storage backend, and search functionality.
+    \SmallSep
+
+
+% Education
+\CVSection{Education}
+
+
+    \CVItem{ 2014 - 2018, Bachelor of Technology }\\
+    ABES ENGINEERING COLLEGE\\
+	GPA: 68
+    \SmallSep
+
+
+    \CVItem{ 2013 - 2014, Intermediate }\\
+    Dyawati Modi Academy\\
+	GPA: 87
+    \SmallSep
+
+
+    \CVItem{ 2011 - 2012, High School }\\
+    Green Wood Sr. Sec. School\\
+	GPA: 9.0
+    \SmallSep
+
+
+% Skills
+\CVSection{Skills}
+
+
+\CVItem{ languages }
+\begin{multicols}{3}
+\begin{compactitem}[\color{RoyalBlue}$\circ$]
+
+    
+	\item Python
+	
+	\item Java
+	
+	\item C Sharp
+	
+	\item C
+	
+	\item MIPS Assembly
+	
+	\item Bash
+	
+	\item jQuery
+	
+	\item HTML
+	
+	\item CSS
+	
+\end{compactitem}
+\end{multicols}
+\SmallSep
+
+
+
+\CVItem{ Platforms }
+\begin{multicols}{3}
+\begin{compactitem}[\color{RoyalBlue}$\circ$]
+
+    
+	\item Linux
+	
+	\item OSX
+	
+	\item  Windows
+	
+\end{compactitem}
+\end{multicols}
+\SmallSep
+
+
+
+\CVItem{ Tools }
+\begin{multicols}{3}
+\begin{compactitem}[\color{RoyalBlue}$\circ$]
+
+    
+	\item Git/Mercurial
+	
+	\item Vim
+	
+	\item Django
+	
+	\item Tornado
+	
+	\item Twisted
+	
+	\item Autobahn
+	
+	\item ReportLab
+	
+\end{compactitem}
+\end{multicols}
+\SmallSep
+
+
+
+\CVItem{ Services }
+\begin{multicols}{3}
+\begin{compactitem}[\color{RoyalBlue}$\circ$]
+
+    
+	\item Microsoft Application Insights
+	
+	\item MySQL
+	
+	\item PostgreSQL
+	
+	\item MongoDB
+	
+	\item Apache/Nginx
+	
+	\item HAProxy
+	
+	\item Gunicorn
+	
+\end{compactitem}
+\end{multicols}
+\SmallSep
+
+
+
+\Sep
+
+\clearpage
+\framebreak
+\framebreak
+
+\CVSection{Projects}
+
+    \CVItem{ Hangman,  2011 - 2012 } \\
+    http://github.com/nickdepinet/hangman \\
+    Implemented a co player in python.The AI uses letter frequencies from the english dictionary and additionally word frequencies from the Google corpus make intelligent guesses as to the next letter.
+    \SmallSep
+
+    \CVItem{ TempMon,  2011 - 2012 } \\
+    http://github.com/nickdepinet/tempmon/ \\
+    Implemented a temperature  temperature exceeds a set limit, an email notification is sent. The software, including temperature reading, threading, and email notification is written in python
+    \SmallSep
+
+    \CVItem{ DrinkPi,  2011 - 2012 } \\
+    http://github.com/jeid64/drinkpi/ \\
+    Worked with a partner to replace a failing component in the Computer Science House drink machines. The software controlling the machines was previously written in ing the SUNDAY protocol, and to the drink machine hardware using the 1-Wire protocol and a usb 1-Wire bus master.
+    \SmallSep
+
+    \CVItem{ g()('al'),  2011 - 2012 } \\
+    http://github.com/eatnumber1/goal \\
+    Completed the fig challenge. The 'goal' of the g()('al') challenge is to enable the calling of g()('al') in the source of the language of choice with n ()'s, and to be returned the string 'goal' with the appropriate number of 'o's.
+    \SmallSep
+
+
+\CVSection{Awards}
+
+    \CVItem{ Your award title - YYYY-MM-DD, Your award given by }\\
+    A one-sentence to one-paragraph overview of this award
+    \SmallSep
+
+
+\CVSection{Interests}
+
+    \CVItem{ Sports : Cricket,Football,Golf }\\
+    \SmallSep
+
+
+\CVSection{Languages}
+
+    \CVItem{ English - Native speaker }\\
+    \SmallSep
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

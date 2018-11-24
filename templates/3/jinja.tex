@@ -1,0 +1,167 @@
+\documentclass[letterpaper,11pt]{article}
+\newlength{\outerbordwidth}
+\pagestyle{empty}
+\raggedbottom
+\raggedright
+\usepackage[svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{times}
+\usepackage{tocloft}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[utf8]{inputenc}
+\usepackage{tabularx}
+\title{Aparna-CV}
+%-----------------------------------------------------------
+%Edit these values as you see fit
+
+\setlength{\outerbordwidth}{3pt}  % Width of border outside of title bars
+\definecolor{shadecolor}{gray}{0.75}  % Outer background color of title bars (0 = black, 1 = white)
+\definecolor{shadecolorB}{gray}{0.93}  % Inner background color of title bars
+
+
+%-----------------------------------------------------------
+%Margin setup
+
+\setlength{\evensidemargin}{-0.25in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\oddsidemargin}{-0.25in}
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+\setlength{\tabcolsep}{0in}
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{7in}
+\setlength{\topmargin}{-0.3in}
+\setlength{\topskip}{0in}
+\setlength{\voffset}{0.1in}
+
+
+%-----------------------------------------------------------
+%Custom commands
+\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+\newcommand{\resheading}[1]{\vspace{8pt}
+  \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
+    \begin{shaded}
+\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\sffamily{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}}
+    \end{shaded}
+  }\vspace{-5pt}
+}
+
+
+
+\begin{document}
+
+%-----------------------------------------------------------
+
+\begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
+  & \multirow{4}{*}{\includegraphics[scale=0.19]{iitmlogo}}\\
+  & \\
+%-----------------------------------------------------------  
+  \textbf{\Large {{resumeData.basics.name}} } & \\
+  {{resumeData.basics.designation}} & \\
+  {{resumeData.basics.currentLocation}}  \\
+  {{resumeData.basics.email}} \\
+\end{tabular*}
+\\
+
+
+
+\resheading{Career Objective}
+{{resumeData.basics.careerObjective}}
+
+
+
+\resheading{Education}
+{% for i in resumeData.education %}
+\begin{itemize}
+\item
+    \ressubheading {{i.institution}} & {{i.year}}
+    \begin{itemize}
+            \resitem{Graduated with {{i.branch}} and a {{i.gpa}}\% average}
+    \end{itemize}
+\end{itemize}  
+{% endfor %}  
+
+
+
+\resheading{Work Experience}
+{% for i in resumeData.work %}
+\begin{itemize}
+\item 
+ {{i.position}} at {{i.company}} ({{i.startDate}}-{{i.endDate}})  \\[-0.6cm]
+
+    \begin{itemize}\itemsep \isep 
+    \item {{i.website}}
+
+    \item {{i.summary}} 
+
+    \end{itemize}
+\end{itemize}    
+{% endfor %}    
+
+
+
+\resheading{Projects}
+{% for i in resumeData.projects %}
+\begin{itemize}
+\item 
+ {{i.name}} at ({{i.startDate}}-{{i.endDate}})  \\[-0.6cm]
+
+    \begin{itemize}\itemsep \isep 
+    \item {{i.url}}
+
+    \item {{i.summary}} 
+
+    \end{itemize}
+\end{itemize}    
+{% endfor %}  
+
+
+\resheading{Skills}
+{% for i,j in resumeData.skills.iteritems %}
+\begin{itemize}
+\item
+    {{i}}
+    \begin{itemize}
+        \resitem{\bf({{j}})}
+    \end{itemize}
+\end{itemize}
+{% endfor %}  
+
+
+
+\resheading{Awards, Grants \& Honours}
+{% for i in resumeData.awards %}
+    \vspace{-2pt}
+    \begin{center}\begin{tabular*}{6.6in}{l@{\extracolsep{\fill}}r}
+        \multicolumn{2}{c}{{i.title}}(\$XXX) \cftdotfill{\cftdotsep}{{i.date}}\\
+        \vphantom{E}
+\end{tabular*}
+\end{center}\vspace*{-16pt}
+{% endfor %}
+\pagebreak
+
+
+
+
+\resheading{Interests}
+{% for i in resumeData.interests %}
+\begin{itemize}
+    {{ i.name }}
+    {{ i.keywords }}
+}
+\item \noindent 
+\end{itemize}
+{% endfor %}
+
+
+
+\resheading{Personal Details}
+{% for i,j in resumeData.personalDetails.iteritems %}
+\begin{itemize}
+   {{ i }} : {{ j }}
+\end{itemize}
+{% endfor %}
+
+\end{document}

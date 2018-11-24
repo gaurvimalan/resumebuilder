@@ -1,0 +1,143 @@
+\documentclass[a4paper,10pt]{article}
+%-----------------------------------------------------------
+\usepackage[top=0.85in, bottom=0.55in, left=0.55in, right=0.85in]{geometry}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{palatino}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage[LabelsAligned]{currvita}
+\fontfamily{SansSerif}
+\selectfont
+
+\usepackage[T1]{fontenc}
+\usepackage
+%[ansinew]
+[utf8]
+{inputenc}
+
+% \usepackage{color}
+% \definecolor{mygrey}{gray}{0.75}
+% \textheight=9.75in
+% \raggedbottom
+
+\setlength{\tabcolsep}{0in}
+\newcommand{\isep}{-2 pt}
+\newcommand{\lsep}{-0.5cm}
+% \newcommand{\psep}{-0.6cm}
+% \renewcommand{\labelitemii}{$\circ$}
+
+\renewcommand{\maketitle}{
+{\bfseries
+\theauthor}
+}
+
+\pagestyle{empty}
+
+
+\begin{document}
+\hspace{0.5cm}\\[-0.2cm]
+
+\title{Resume}
+\author{\bfseries\\{{resumeData.basics.name}}}
+\maketitle \\
+\indent {{resumeData.basics.currentLocation}} \\
+\indent Email-id : \textbf{{resumeData.basics.email}} \\
+\indent Mobile No.: \textbf{{resumeData.basics.phone}} \\
+
+
+
+
+
+\resheading{\textbf{ACADEMIC DETAILS} }\\[\lsep]
+
+
+\begin{table}[ht!]
+\begin{left}
+\indent \begin{tabular}{ l @{\hskip 0.15in} l @{\hskip 0.15in} l @{\hskip 0.15in} l @{\hskip 0.15in} l }
+\hline
+\textbf{Examination}  & \textbf{Institute} & \textbf{Year} & \textbf{CPI/\%} \\
+\hline
+{% for i in resumeData.education %}
+{{i.area}} & {{i.institution}} & {{i.startDate}}-{{i.endDate}} & {{i.gpa}}\\
+{% endfor %}
+\end{tabular}
+\end{left}
+\end{table}
+\\ \\
+
+
+
+
+\resheading{\textbf{WORK EXPERIENCE} }\\[\lsep]
+{% for i in resumeData.work %}
+\begin{itemize}
+\item 
+ {{i.position}} ---- {{i.company}}({{i.startDate}}-{{i.endDate}})  {{i.location}}  \\[-0.6cm]
+
+	\begin{itemize}\itemsep \isep 
+	\item {{i.website}}
+
+	\item {{i.summary}} 
+
+	\end{itemize}
+\end{itemize}
+{% endfor %} 
+
+
+
+\resheading{\textbf{PROJECTS} }\\[\lsep]
+{% for i in resumeData.projects %}
+\begin{itemize}
+\item 
+ {{i.name}} ---- ({{i.startDate}}-{{i.endDate}})    \\[-0.6cm]
+
+	\begin{itemize}\itemsep \isep 
+	\item {{i.url}}
+
+	\item {{i.summary}} 
+
+	\end{itemize}
+\end{itemize}
+{% endfor %}
+
+
+
+\resheading{\textbf{TECHNICAL SKILLS} }\\[\lsep]
+{% for i,j in resumeData.skills.iteritems %}
+\begin{itemize}
+\item \noindent \textbf {{i}} - {{ j }}
+\end{itemize}
+{% endfor %}
+
+
+
+
+\resheading{\textbf{AWARDS AND ACHIEVEMENTS} }\\[\lsep]
+{% for i in resumeData.awards %}
+\begin{itemize}
+\item \noindent {{i.title}}: & {{i.summary}}, & {{i.date}}
+{% endfor %}
+
+
+
+\resheading{\textbf{FIELDS OF INTEREST} }\\[\lsep]
+{% for i in resumeData.interests %}
+\begin{itemize}
+\item \noindent {{i.name}}: {{i.keywords}}
+\end{itemize}
+{% endfor %}
+
+
+
+
+\resheading{\textbf{PERSONAL DETAILS} }\\[\lsep]
+{% for i,j in resumeData.personalDetails.iteritems %}
+\begin{itemize}
+   {{ i }} : {{ j }}
+\end{itemize}
+{% endfor %}
+
+
+\end{document}

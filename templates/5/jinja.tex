@@ -1,0 +1,93 @@
+\documentclass[10pt]{article}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{parskip}
+\usepackage[margin=1in]{geometry}
+
+
+\titleformat{\section}
+{\huge\bfseries}
+{}
+{0em}
+{}[\titlerule]
+
+
+\titleformat{\subsection}
+{\bfseries\Large}
+{$\bullet$}
+{0em}
+{}
+
+
+\renewcommand{\maketitle}{
+\begin{center}
+{\huge\bfseries
+\theauthor}
+
+\end{center}
+}
+
+ 
+
+
+
+
+\begin{document}
+\title{Resume}
+\author{\huge\bfseries\\{{resumeData.basics.name}}}
+\maketitle
+
+\section{Objective}
+{{resumeData.basics.careerObjective}}
+
+
+
+\section{Position}
+{{resumeData.work.[0].startDate}} - Present in &{\vspace{.25em}\bf {{resumeData.work.[0].company}}}\\&{{resumeData.work.[0].summary}}
+
+
+
+\section{Educational Qualification}
+{% for i in resumeData.education %}
+{{i.startDate}}-{{i.endDate}}\\&{{i.area}}\\&{{i.institution}}
+\hspace{5pt}
+{% endfor %}
+
+
+
+\section{Technical Skills}
+{% for i,j in resumeData.skills.iteritems %}
+{{i}}: {{j}}
+{% endfor %}
+
+
+
+
+\section{Work Experience}
+{% for i in resumeData.work %}
+{{i.name}}\\&{{i.startDate}}-{{i.endDate}}\\&{{i.summary}}
+\hspace{5pt}
+{% endfor %}
+
+
+\section{Projects}
+{% for i in resumeData.projects %}
+{{i.name}}\\&{{i.startDate}}-{{i.endDate}}\\&{{i.summary}}
+\hspace{5pt}
+{% endfor %}
+
+
+
+
+\section{Interests}
+{% for i in resumeData.interests %}
+&{{i.name}}: {{i.keywords"}} 
+{% endfor %}
+
+
+
+\section{Personal Details}
+{% for i,j in resumeData.personalDetails.iteritems %}
+{{ i }} : {{ j }}
+{% endfor %}
+\end{document}
